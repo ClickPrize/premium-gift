@@ -1,171 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ULTRA_NET | Premium Hub 2025</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ULTRA_NET | Premium Hub 2025</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        body { background: #000; color: #4ade80; font-family: 'Fira Code', monospace; min-height: 100vh; }
+        .matrix-card { 
+            background: rgba(10, 10, 10, 0.9); 
+            border: 1px solid rgba(34, 197, 94, 0.1); 
+            overflow: hidden;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .matrix-card:hover { border-color: #4ade80; transform: scale(1.02); box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
 
-<script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+        .cover { width: 100%; height: 180px; object-fit: cover; transition: 0.5s; }
+        .netflix-cover { background: linear-gradient(45deg, #000, #e50914); }
+        .steam-cover { background: linear-gradient(45deg, #171a21, #66c0f4); }
+        .spotify-cover { background: linear-gradient(45deg, #000, #1db954); }
 
-<style>
-body {
-    background: #000;
-    color: #4ade80;
-    font-family: 'Fira Code', monospace;
-    min-height: 100vh;
-}
-
-.matrix-card {
-    background: rgba(10, 10, 10, 0.9);
-    border: 1px solid rgba(34, 197, 94, 0.1);
-    overflow: hidden;
-    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-.matrix-card:hover {
-    border-color: #4ade80;
-    transform: scale(1.02);
-    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-}
-
-.cover {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: 0.5s;
-}
-
-.netflix-cover {
-    background: linear-gradient(135deg, #000000, #e50914);
-}
-
-.matrix-card:hover .cover {
-    transform: scale(1.1);
-    filter: brightness(1.2);
-}
-
-.search-input {
-    background: #0a0a0a;
-    border: 1px solid #166534;
-    color: #4ade80;
-}
-.search-input:focus {
-    border-color: #4ade80;
-    box-shadow: 0 0 15px rgba(74, 222, 128, 0.2);
-    outline: none;
-}
-</style>
+        .matrix-card:hover .cover { transform: scale(1.1); filter: brightness(1.2); }
+        .search-input { background: #0a0a0a; border: 1px solid #166534; color: #4ade80; }
+        .search-input:focus { border-color: #4ade80; box-shadow: 0 0 15px rgba(74, 222, 128, 0.2); outline: none; }
+    </style>
 </head>
 
 <body class="pb-20">
 
-<!-- NAV -->
 <nav class="sticky top-0 z-50 bg-black border-b border-green-900/30 px-6 py-4 flex justify-between items-center">
     <div class="flex items-center gap-2">
         <div class="w-8 h-8 bg-green-500 rounded flex items-center justify-center font-bold text-black">U</div>
         <h2 class="font-bold tracking-tighter text-white text-xs uppercase italic">Ultra_Net</h2>
     </div>
     <div class="relative w-1/2 max-w-xs">
-        <input type="text" id="searchInput" onkeyup="searchFilter()" placeholder="SEARCH..."
-            class="search-input w-full py-1.5 px-8 rounded-full text-[9px] uppercase tracking-widest">
-    </div>
-    <div class="text-[8px] text-green-500 font-bold uppercase">v9.5 Secure</div>
-</nav>
-
-<!-- CONTENT -->
-<div class="max-w-6xl mx-auto px-6 pt-10">
-
-<div id="selection-zone" class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-
-<!-- NETFLIX CARD -->
-<div class="matrix-card rounded-3xl item-card" data-name="netflix">
-
-    <div class="netflix-cover h-[180px] relative flex items-center justify-center overflow-hidden">
-        <img
-            src="https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?auto=format&fit=crop&w=1200&q=80"
-            class="cover absolute inset-0 opacity-70"
-            alt="Netflix Cover">
-        <span class="relative text-2xl font-black text-red-600 italic tracking-widest">
-            NETFLIX
-        </span>
-    </div>
-
-    <div class="p-6">
-        <h3 class="text-lg font-black text-white italic mb-1 uppercase">Netflix UHD</h3>
-        <p class="text-[9px] text-red-500 font-bold mb-5 tracking-widest uppercase">
-            4K Multi-Screen Bypass
-        </p>
-        <button onclick="start('Netflix')"
-            class="w-full py-3 bg-red-600/10 border border-red-600/40 text-red-500 text-[9px] font-black tracking-widest hover:bg-red-600 hover:text-white transition uppercase rounded-xl">
-            Inject Protocol
-        </button>
-    </div>
-</div>
-
-</div>
-</div>
-
-<!-- LOADER -->
-<div id="loader-zone" class="hidden fixed inset-0 bg-black/98 z-[100] flex items-center justify-center p-6">
-    <div class="max-w-md w-full text-center">
-        <div class="h-0.5 w-full bg-white/10 mb-6 overflow-hidden">
-            <div id="fill" class="h-full bg-green-500 w-0 transition-all shadow-[0_0_10px_#4ade80]"></div>
-        </div>
-        <div id="console" class="text-[9px] font-mono text-green-500 h-24 overflow-hidden italic uppercase leading-loose"></div>
-    </div>
-</div>
-
-<!-- VERIFY -->
-<div id="verify-zone" class="hidden fixed inset-0 bg-black/98 z-[101] flex items-center justify-center p-6">
-    <div class="bg-black border border-green-500/20 p-10 rounded-[2.5rem] max-w-sm text-center">
-        <h2 class="text-xl font-black text-white mb-4 italic uppercase">Security Alert</h2>
-        <p class="text-[10px] text-gray-500 mb-8 uppercase leading-relaxed">
-            To prevent automated abuse, please complete verification.
-        </p>
-        <button onclick="unlock()"
-            class="w-full py-5 bg-green-500 text-black font-black rounded-xl text-xs hover:scale-105 transition-all uppercase italic">
-            Verify
-        </button>
-    </div>
-</div>
-
-<script>
-function searchFilter() {
-    let input = document.getElementById('searchInput').value.toLowerCase();
-    let cards = document.getElementsByClassName('item-card');
-    for (let card of cards) {
-        let name = card.getAttribute('data-name');
-        card.style.display = name.includes(input) ? "block" : "none";
-    }
-}
-
-const msgs = ["Handshaking...", "Bypassing RSA...", "Extracting Data...", "Securing Session...", "Ready!"];
-
-function start() {
-    document.getElementById('loader-zone').classList.remove('hidden');
-    let p = 0, i = 0;
-    const iv = setInterval(() => {
-        p += 5;
-        document.getElementById('fill').style.width = p + '%';
-        if (p % 20 === 0 && i < msgs.length) {
-            const l = document.createElement('p');
-            l.innerText = '> ' + msgs[i++];
-            document.getElementById('console').appendChild(l);
-        }
-        if (p >= 100) {
-            clearInterval(iv);
-            setTimeout(() => {
-                document.getElementById('loader-zone').classList.add('hidden');
-                document.getElementById('verify-zone').classList.remove('hidden');
-            }, 500);
-        }
-    }, 100);
-}
-
-function unlock() {
-    alert("Verified");
-}
-</script>
-
-</body>
-</html>
+        <input type="text" id="searchInput" onkeyup="

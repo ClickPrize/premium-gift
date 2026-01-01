@@ -3,31 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ULTRA_NET | v9.5 SECURE</title>
+    <title>ULTRA_NET | v9.5 Premium</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@900&family=Fira+Code:wght@500&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@900&family=Fira+Code:wght@500&display=swap');
-        body { background-color: #000; color: #fff; font-family: 'Inter', sans-serif; overflow-x: hidden; }
-        .matrix-card { background-color: #121212; border-radius: 2.5rem; overflow: hidden; margin-bottom: 2.5rem; border: 1px solid #1a1a1a; }
+        body { background-color: #000; color: #fff; font-family: 'Inter', sans-serif; }
+        .matrix-card { background-color: #0f0f0f; border-radius: 2.5rem; overflow: hidden; margin-bottom: 2.5rem; border: 1px solid #1a1a1a; }
         
-        /* Netflix Fixed Cover */
+        /* Netflix Cover Fixed */
         .netflix-cover { 
             width: 100%; height: 200px; 
             background: #000 url('https://www.edigitalagency.com.au/wp-content/uploads/Netflix-logo-red-black-png.png') no-repeat center; 
-            background-size: 50%; border-bottom: 2px solid #e50914; 
-        }
-        /* Spotify Header Fix */
-        .spotify-cover { 
-            width: 100%; height: 200px; 
-            background: #1db954 url('https://upload.wikimedia.org/wikipedia/commons/2/26/Spotify_logo_with_text.svg') no-repeat center; 
-            background-size: 60%; filter: invert(1) brightness(0);
+            background-size: 50%; border-bottom: 3px solid #e50914; 
         }
 
-        .btn-red { background-color: #e50914; }
-        .btn-blue { background-color: #3b82f6; }
-        .btn-green { background-color: #1db954; color: black; }
+        .btn-netflix { background-color: #e50914; }
+        .btn-steam { background-color: #3b82f6; }
+        .btn-spotify { background-color: #1db954; color: black; }
         
-        .terminal-box { font-family: 'Fira Code', monospace; color: #4ade80; opacity: 0.8; font-size: 10px; line-height: 1.8; border-left: 2px solid #166534; padding-left: 1.5rem; }
+        .steps-box { border: 1px dashed #166534; background: rgba(0, 255, 0, 0.02); padding: 25px; border-radius: 25px; }
+        .step-num { color: #4ade80; font-weight: 900; margin-left: 10px; }
+        .rtl-text { direction: rtl; text-align: right; }
     </style>
 </head>
 <body class="pb-10">
@@ -35,63 +31,58 @@
     <nav class="sticky top-0 z-50 bg-black border-b border-white/5 px-6 py-4 flex justify-between items-center">
         <div class="flex items-center gap-2">
             <div class="w-8 h-8 bg-[#4ade80] rounded flex items-center justify-center font-black text-black text-sm">U</div>
-            <h1 class="font-black italic text-sm tracking-tighter uppercase">ULTRA_NET</h1>
+            <h1 class="font-black italic text-sm tracking-tighter uppercase italic text-white">ULTRA_NET</h1>
         </div>
-        <div class="text-[9px] text-[#4ade80] font-bold tracking-widest uppercase italic">v9.5 SECURE</div>
+        <div class="text-[9px] text-[#4ade80] font-bold uppercase italic">v9.5 SECURE</div>
     </nav>
 
     <div class="px-6 pt-8">
-        <p class="text-[9px] text-gray-600 mb-2 uppercase font-bold tracking-widest ml-2">Loader-zone</p>
-        <div class="bg-[#0a0a0a] border border-[#222] p-3 mb-12 rounded-2xl flex items-center">
-            <input type="text" placeholder="SEARCH DATABASE..." class="bg-transparent w-full text-[10px] font-bold outline-none uppercase tracking-widest text-gray-500">
-        </div>
-
-        <div class="space-y-4">
-            <div class="matrix-card">
-                <div class="netflix-cover"></div>
-                <div class="p-8">
-                    <p class="text-[9px] text-gray-600 mb-1 uppercase font-bold tracking-widest">Selection UHD</p>
-                    <h3 class="text-3xl font-black italic mb-2 uppercase tracking-tighter">Netflix UHD</h3>
-                    <p class="text-[10px] text-red-600 font-bold mb-8 uppercase italic leading-tight">4K Multi-Screen Bypass Protocol</p>
-                    <button onclick="start('Netflix')" class="w-full py-5 btn-red rounded-3xl font-black text-xs uppercase tracking-widest italic">Inject Protocol</button>
-                </div>
-            </div>
-
-            <div class="matrix-card">
-                <div class="w-full h-[200px] bg-[#171a21] flex items-center justify-center border-b border-white/5">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Steam_Logo.png" class="w-24 opacity-80" alt="Steam">
-                </div>
-                <div class="p-8">
-                    <p class="text-[9px] text-gray-600 mb-1 uppercase font-bold tracking-widest">Selection UH2</p>
-                    <h3 class="text-3xl font-black italic mb-2 uppercase tracking-tighter">Steam</h3>
-                    <p class="text-[10px] text-blue-500 font-bold mb-8 uppercase italic leading-tight">Wallet & Library Extraction</p>
-                    <button onclick="start('Steam')" class="w-full py-5 btn-blue rounded-3xl font-black text-xs uppercase tracking-widest italic">Extract Protocol</button>
-                </div>
-            </div>
-
-            <div class="matrix-card">
-                <div class="spotify-cover"></div>
-                <div class="p-8">
-                    <p class="text-[9px] text-gray-600 mb-1 uppercase font-bold tracking-widest">Selection UH9</p>
-                    <h3 class="text-3xl font-black italic mb-2 uppercase tracking-tighter">Spotify Prem</h3>
-                    <p class="text-[10px] text-[#1db954] font-bold mb-8 uppercase italic leading-tight">No-Ads Lifetime Bypass Protocol</p>
-                    <button onclick="start('Spotify')" class="w-full py-5 btn-green rounded-3xl font-black text-xs uppercase tracking-widest italic">Extract Data</button>
-                </div>
+        <div class="matrix-card">
+            <div class="netflix-cover"></div>
+            <div class="p-8 text-center">
+                <h3 class="text-3xl font-black italic mb-2 uppercase tracking-tighter">Netflix UHD</h3>
+                <p class="text-[10px] text-red-600 font-bold mb-8 uppercase italic tracking-widest">4K Multi-Screen Bypass</p>
+                <button onclick="start('Netflix')" class="w-full py-5 btn-netflix rounded-3xl font-black text-xs uppercase tracking-widest italic">Inject Protocol</button>
             </div>
         </div>
 
-        <div class="mt-12 terminal-box uppercase italic">
-            <p>htt.2 w tolt Fircked Inset 0 BBv.55-10-00+00.1ins/£2012p</p>
-            <p>16£/€8016]</p>
-            <p>27/L:29[44-6004]</p>
-            <p>htpx=20-05=11w:[4B1.50+0/6049]</p>
+        <div class="matrix-card">
+            <div class="w-full h-[200px] bg-[#171a21] flex items-center justify-center border-b border-blue-500/20">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Steam_Logo.png" class="w-24 opacity-80" alt="Steam">
+            </div>
+            <div class="p-8 text-center">
+                <h3 class="text-3xl font-black italic mb-2 uppercase tracking-tighter">Steam</h3>
+                <p class="text-[10px] text-blue-500 font-bold mb-8 uppercase italic tracking-widest">Wallet & Library Extraction</p>
+                <button onclick="start('Steam')" class="w-full py-5 btn-steam rounded-3xl font-black text-xs uppercase tracking-widest italic">Extract Data</button>
+            </div>
         </div>
 
-        <div class="mt-16 text-center">
-            <h2 class="italic font-black text-2xl text-[#4ade80] mb-6 tracking-tighter uppercase">Encrypted Server Network</h2>
-            <div class="flex justify-between px-4 text-[10px] font-bold text-[#4ade80]/60 uppercase italic">
+        <div class="matrix-card">
+            <div class="w-full h-[200px] bg-[#1db954] flex items-center justify-center border-b border-white/5">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/26/Spotify_logo_with_text.svg" class="w-40 invert brightness-0" alt="Spotify">
+            </div>
+            <div class="p-8 text-center">
+                <h3 class="text-3xl font-black italic mb-2 uppercase tracking-tighter">Spotify Prem</h3>
+                <p class="text-[10px] text-black font-bold mb-8 uppercase italic tracking-widest">No-Ads Lifetime Bypass</p>
+                <button onclick="start('Spotify')" class="w-full py-5 btn-spotify rounded-3xl font-black text-xs uppercase tracking-widest italic">Bypass Ads</button>
+            </div>
+        </div>
+
+        <div class="steps-box mt-10 mb-10 rtl-text">
+            <h2 class="text-xl font-black text-[#4ade80] italic mb-6 uppercase tracking-tighter">خطوات الحصول على الهدية:</h2>
+            <div class="space-y-4 text-[12px] font-bold">
+                <p><span class="step-num">01.</span> اختر المنصة المفضلة لديك واضغط على زر البدء.</p>
+                <p><span class="step-num">02.</span> انتظر النظام حتى يقوم بفك التشفير وتجهيز حسابك.</p>
+                <p><span class="step-num">03.</span> أكمل عملية التحقق البشري لضمان أنك لست روبوتاً.</p>
+                <p><span class="step-num">04.</span> بعد النجاح، سيتم توجيهك تلقائياً لتليجرام لاستلام الحساب.</p>
+            </div>
+        </div>
+
+        <div class="mt-16 text-center opacity-50">
+            <h2 class="italic font-black text-xl text-[#4ade80] mb-6 tracking-tighter uppercase italic">Encrypted Server Network</h2>
+            <div class="flex justify-between px-2 text-[10px] font-bold text-[#4ade80] uppercase italic">
                 <span>Status : Optimal</span>
-                <span>Latency : Active</span>
+                <span>Latency : 24ms</span>
                 <span>Global : Active</span>
             </div>
         </div>
@@ -100,14 +91,14 @@
     <div id="loader-zone" class="hidden fixed inset-0 bg-black/98 z-[100] flex items-center justify-center p-10">
         <div class="w-full text-center">
             <div class="h-1 bg-gray-900 mb-8 overflow-hidden rounded-full"><div id="fill" class="h-full bg-[#4ade80] w-0 transition-all duration-300"></div></div>
-            <p class="text-[10px] font-mono text-[#4ade80] uppercase tracking-widest animate-pulse italic">Processing Bypass...</p>
+            <p class="text-[10px] font-mono text-[#4ade80] uppercase tracking-widest animate-pulse italic">Connecting to Server...</p>
         </div>
     </div>
 
     <div id="verify-zone" class="hidden fixed inset-0 bg-black/98 z-[101] flex items-center justify-center p-10 text-center">
         <div class="matrix-card p-12 border-white/5 max-w-sm">
-            <h2 class="text-2xl font-black mb-6 uppercase italic text-white tracking-widest">Security</h2>
-            <p class="text-[10px] text-gray-500 mb-10 uppercase tracking-[0.2em] leading-loose">Verify your identity to claim the final token.</p>
+            <h2 class="text-2xl font-black mb-6 uppercase italic text-white tracking-widest">Verification</h2>
+            <p class="text-[11px] text-gray-500 mb-10 uppercase leading-loose tracking-widest">أكمل التحقق للحصول على حسابك الآن</p>
             <button onclick="unlock()" class="w-full py-5 bg-[#4ade80] text-black font-black rounded-full text-xs uppercase italic tracking-widest shadow-[0_0_30px_#4ade80]">Verify Now</button>
         </div>
     </div>

